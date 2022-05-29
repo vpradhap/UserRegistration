@@ -9,15 +9,16 @@ namespace UserRegistration
 {
     public class UserValidation
     {
-        string CONDITION = "^[A-Z][A-Za-z]{2,}$";
-        string CONDITION1 = "^[A-Za-z0-9]{3,}([_.+-]{1}[0-9A-Za-z]{1,}){0,}@[a-z0-9]+[.](com|net){0,1}([.]((com)|([a-z]{2}){0,1})){0,1}$";
-        string CONDITION2 = "^[+][0-9]{1,3}[ ][1-9]{1}[0-9]{9}$";
+        string FIRSTANDLASTNAME = "^[A-Z][A-Za-z]{2,}$";
+        string EMAILID = "^[A-Za-z0-9]{3,}([_.+-]{1}[0-9A-Za-z]{1,}){0,}@[a-z0-9]+[.](com|net){0,1}([.]((com)|([a-z]{2}){0,1})){0,1}$";
+        string MOBILE = "^[+][0-9]{1,3}[ ][1-9]{1}[0-9]{9}$";
+        string PASSWORD_R1 = "[A-Za-z0-9]{8,}";
         public void FirstName()
         {
             Console.Write("\nEnter your first name : ");
             string input = Console.ReadLine();
 
-            if(Regex.IsMatch(input, CONDITION))
+            if(Regex.IsMatch(input, FIRSTANDLASTNAME))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n"+input + " is valid");
@@ -35,7 +36,7 @@ namespace UserRegistration
             Console.Write("\nEnter your last name : ");
             string input = Console.ReadLine();
 
-            if (Regex.IsMatch(input, CONDITION))
+            if (Regex.IsMatch(input,FIRSTANDLASTNAME))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n" + input + " is valid");
@@ -53,7 +54,7 @@ namespace UserRegistration
             Console.Write("\nEnter your Email Id : ");
             string input = Console.ReadLine();
 
-            if (Regex.IsMatch(input, CONDITION1))
+            if (Regex.IsMatch(input, EMAILID))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n" + input + " is valid");
@@ -71,7 +72,25 @@ namespace UserRegistration
             Console.Write("\nEnter your mobile number with country code followed by a space : ");
             string input = Console.ReadLine();
 
-            if (Regex.IsMatch(input, CONDITION2))
+            if (Regex.IsMatch(input, MOBILE))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\n" + input + " is valid");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n" + input + " is invalid\t ( Try again )");
+                Console.ResetColor();
+            }
+        }
+        public void Password_R1()
+        {
+            Console.Write("\nEnter your password (minimum 8 characters) : ");
+            string input = Console.ReadLine();
+
+            if (Regex.IsMatch(input, PASSWORD_R1))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n" + input + " is valid");

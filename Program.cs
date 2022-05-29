@@ -9,6 +9,7 @@ while (flag == 0)
     Console.WriteLine("2 - Validate Last name");
     Console.WriteLine("3 - Validate Email Id");
     Console.WriteLine("4 - Validate Mobile number");
+    Console.WriteLine("5 - Validate password rule 1");
 
     Console.Write("\nEnter your choice : ");
     string pick = Console.ReadLine();
@@ -25,6 +26,9 @@ while (flag == 0)
             break;
         case "4":
             validation.Mobile();
+            break;
+        case "5":
+            validation.Password_R1();
             break;
         default:
             flag = 1;

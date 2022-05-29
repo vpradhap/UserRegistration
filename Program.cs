@@ -7,6 +7,7 @@ while (flag == 0)
 {
     Console.WriteLine("\n1 - Validate first name");
     Console.WriteLine("2 - Validate Last name");
+    Console.WriteLine("3 - Validate Email Id");
 
     Console.Write("\nEnter your choice : ");
     string pick = Console.ReadLine();
@@ -17,6 +18,9 @@ while (flag == 0)
             break;
         case "2":
             validation.LastName();
+            break;
+        case "3":
+            validation.EmailId();
             break;
         default:
             flag = 1;

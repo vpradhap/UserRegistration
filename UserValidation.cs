@@ -11,6 +11,7 @@ namespace UserRegistration
     {
         string CONDITION = "^[A-Z][A-Za-z]{2,}$";
         string CONDITION1 = "^[A-Za-z0-9]{3,}([_.+-]{1}[0-9A-Za-z]{1,}){0,}@[a-z0-9]+[.](com|net){0,1}([.]((com)|([a-z]{2}){0,1})){0,1}$";
+        string CONDITION2 = "^[+][0-9]{1,3}[ ][1-9]{1}[0-9]{9}$";
         public void FirstName()
         {
             Console.Write("\nEnter your first name : ");
@@ -53,6 +54,24 @@ namespace UserRegistration
             string input = Console.ReadLine();
 
             if (Regex.IsMatch(input, CONDITION1))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\n" + input + " is valid");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n" + input + " is invalid\t ( Try again )");
+                Console.ResetColor();
+            }
+        }
+        public void Mobile()
+        {
+            Console.Write("\nEnter your mobile number with country code followed by a space : ");
+            string input = Console.ReadLine();
+
+            if (Regex.IsMatch(input, CONDITION2))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n" + input + " is valid");

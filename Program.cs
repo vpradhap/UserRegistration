@@ -12,6 +12,7 @@ while (flag == 0)
     Console.WriteLine("5 - Validate password rule 1");
     Console.WriteLine("6 - Validate password rule 1 and rule 2 combined");
     Console.WriteLine("7 - Validate password rule 1 , rule 2 and rule 3 combined");
+    Console.WriteLine("8 - Validate password rule 1 , rule 2 , rule 3 and rule 4 combined");
 
     Console.Write("\nEnter your choice : ");
     string pick = Console.ReadLine();
@@ -37,6 +38,9 @@ while (flag == 0)
             break;
         case "7":
             validation.Password_R3();
+            break;
+        case "8":
+            validation.Password_R4();
             break;
         default:
             flag = 1;

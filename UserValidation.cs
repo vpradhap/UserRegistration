@@ -160,5 +160,29 @@ namespace UserRegistration
                 Console.ResetColor();
             }
         }
+        public void EmailTest()
+        {
+            List<string> email = new List<string>()
+            {
+                 "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com", "abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au"
+            };
+            foreach(string input in email)
+            {
+                if (Regex.IsMatch(input, EMAILID))
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\n" + input + " is valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\n" + input + " is invalid\t ( Try again )");
+                    Console.ResetColor();
+                }
+            }
+
+            
+        }
     }
 }

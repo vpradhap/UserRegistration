@@ -14,6 +14,7 @@ namespace UserRegistration
         string MOBILE = "^[+][0-9]{1,3}[ ][1-9]{1}[0-9]{9}$";
         string PASSWORD_R1 = "[A-Za-z0-9]{8,}";
         string PASSWORD_R2 = "^(?=.*[A-Z]).{8,}$";
+        string PASSWORD_R3 = "^(?=.*[A-Z0-9]).{8,}$";
         public void FirstName()
         {
             Console.Write("\nEnter your first name : ");
@@ -110,6 +111,24 @@ namespace UserRegistration
             string input = Console.ReadLine();
 
             if (Regex.IsMatch(input, PASSWORD_R2))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\n" + input + " is valid");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n" + input + " is invalid\t ( Try again )");
+                Console.ResetColor();
+            }
+        }
+        public void Password_R3()
+        {
+            Console.Write("\nEnter your password (min 8 characters , one uppercase and one number) : ");
+            string input = Console.ReadLine();
+
+            if (Regex.IsMatch(input, PASSWORD_R3))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n" + input + " is valid");

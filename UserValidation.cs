@@ -20,18 +20,32 @@ namespace UserRegistration
         {
             Console.Write("\nEnter your first name : ");
             string input = Console.ReadLine();
-
-            if(Regex.IsMatch(input, FIRSTANDLASTNAME))
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\n"+input + " is valid");
-                Console.ResetColor();
+                if (input.Equals(""))
+                {
+                    throw new CustomException(CustomException.ExceptionType.EMPTY_STRING, "\n\nFirst name should not be empty\n");
+                }
+                if (input.Equals(null))
+                {
+                    throw new CustomException(CustomException.ExceptionType.NULL_STRING, "\n\nFirst name should not be null\n");
+                }
+                if (Regex.IsMatch(input, FIRSTANDLASTNAME))
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\n" + input + " is valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new CustomException(CustomException.ExceptionType.INVALID_STRING, "\n\nFirst name should be valid\n");
+                    Console.ResetColor();
+                }
             }
-            else
+            catch(NullReferenceException e)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n"+input + " is invalid\t ( Try again )");
-                Console.ResetColor();
+                Console.WriteLine(e.Message);
             }
         }
         public void LastName()
@@ -39,17 +53,32 @@ namespace UserRegistration
             Console.Write("\nEnter your last name : ");
             string input = Console.ReadLine();
 
-            if (Regex.IsMatch(input,FIRSTANDLASTNAME))
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\n" + input + " is valid");
-                Console.ResetColor();
+                if (input.Equals(""))
+                {
+                    throw new CustomException(CustomException.ExceptionType.EMPTY_STRING, "\n\nLast name should not be empty\n");
+                }
+                if (input.Equals(null))
+                {
+                    throw new CustomException(CustomException.ExceptionType.NULL_STRING, "\n\nLast name should not be null\n");
+                }
+                if (Regex.IsMatch(input, FIRSTANDLASTNAME))
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\n" + input + " is valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new CustomException(CustomException.ExceptionType.INVALID_STRING, "\n\nLast name should be valid\n");
+                    Console.ResetColor();
+                }
             }
-            else
+            catch(NullReferenceException e)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n" + input + " is invalid\t ( Try again )");
-                Console.ResetColor();
+                Console.WriteLine(e.Message);
             }
         }
         public void EmailId()
@@ -57,37 +86,67 @@ namespace UserRegistration
             Console.Write("\nEnter your Email Id : ");
             string input = Console.ReadLine();
 
-            if (Regex.IsMatch(input, EMAILID))
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\n" + input + " is valid");
-                Console.ResetColor();
+                if (input.Equals(""))
+                {
+                    throw new CustomException(CustomException.ExceptionType.EMPTY_STRING, "\n\nEmail Id should not be empty\n");
+                }
+                if (input.Equals(null))
+                {
+                    throw new CustomException(CustomException.ExceptionType.NULL_STRING, "\n\nEmail Id should not be null\n");
+                }
+                if (Regex.IsMatch(input, EMAILID))
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\n" + input + " is valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new CustomException(CustomException.ExceptionType.INVALID_STRING, "\n\nEmail Id should be valid\n");
+                    Console.ResetColor();
+                }
             }
-            else
+            catch (NullReferenceException e)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n" + input + " is invalid\t ( Try again )");
-                Console.ResetColor();
+                Console.WriteLine(e.Message);
             }
         }
         public void Mobile()
-        {
+        {   
             Console.Write("\nEnter your mobile number with country code followed by a space : ");
             string input = Console.ReadLine();
-
-            if (Regex.IsMatch(input, MOBILE))
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\n" + input + " is valid");
-                Console.ResetColor();
+                if (input.Equals(""))
+                {
+                    throw new CustomException(CustomException.ExceptionType.EMPTY_STRING, "\n\nmobile number should not be empty\n");
+                }
+                if (input.Equals(null))
+                {
+                    throw new CustomException(CustomException.ExceptionType.NULL_STRING, "\n\nmobile number should not be null\n");
+                }
+                if (Regex.IsMatch(input, EMAILID))
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\n" + input + " is valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new CustomException(CustomException.ExceptionType.INVALID_STRING, "\n\nmobile number should be valid\n");
+                    Console.ResetColor();
+                }
             }
-            else
+            catch (NullReferenceException e)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n" + input + " is invalid\t ( Try again )");
-                Console.ResetColor();
+                Console.WriteLine(e.Message);
             }
         }
+        
         public void Password_R1()
         {
             Console.Write("\nEnter your password (minimum 8 characters) : ");
@@ -146,18 +205,32 @@ namespace UserRegistration
         {
             Console.Write("\nEnter your password (min 8 characters , one uppercase , one number and exactly one special character) : ");
             string input = Console.ReadLine();
-
-            if (Regex.IsMatch(input, PASSWORD_R4))
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\n" + input + " is valid");
-                Console.ResetColor();
+                if (input.Equals(""))
+                {
+                    throw new CustomException(CustomException.ExceptionType.EMPTY_STRING, "\n\npassword should not be empty\n");
+                }
+                if (input.Equals(null))
+                {
+                    throw new CustomException(CustomException.ExceptionType.NULL_STRING, "\n\npassword should not be null\n");
+                }
+                if (Regex.IsMatch(input, PASSWORD_R4))
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\n" + input + " is valid");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new CustomException(CustomException.ExceptionType.INVALID_STRING, "\n\npassword should be valid\n");
+                    Console.ResetColor();
+                }
             }
-            else
+            catch (NullReferenceException e)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n" + input + " is invalid\t ( Try again )");
-                Console.ResetColor();
+                Console.WriteLine(e.Message);
             }
         }
         public void EmailTest()

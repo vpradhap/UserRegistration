@@ -14,6 +14,7 @@ while (flag == 0)
     Console.WriteLine("7 - Validate password rule 1 , rule 2 and rule 3 combined");
     Console.WriteLine("8 - Validate password rule 1 , rule 2 , rule 3 and rule 4 combined");
     Console.WriteLine("9 - Validate More Email Id's");
+    Console.WriteLine("10 - Validation using lambda");
 
     Console.Write("\nEnter your choice : ");
     string pick = Console.ReadLine();
@@ -45,6 +46,28 @@ while (flag == 0)
             break;
         case "9":
             validation.EmailTest();
+            break;
+        case "10":
+            Console.Write("\nEnter your first name : ");
+            string first = Console.ReadLine();
+            Console.Write("\nValidation result : ");
+            Console.WriteLine(validation.First(first));
+            Console.Write("\nEnter your last name : ");
+            string last = Console.ReadLine();
+            Console.Write("\nValidation result : "); 
+            Console.WriteLine(validation.Last(last));
+            Console.Write("\nEnter your Email ID : ");
+            string email = Console.ReadLine();
+            Console.Write("\nValidation result : ");
+            Console.WriteLine(validation.Email(email));
+            Console.Write("\nEnter your phone number : ");
+            string phonenum = Console.ReadLine();
+            Console.Write("\nValidation result : ");
+            Console.WriteLine(validation.Email(phonenum));
+            Console.Write("\nEnter your password : ");
+            string password = Console.ReadLine();
+            Console.Write("\nValidation result : ");
+            Console.WriteLine(validation.Email(password));
             break;
         default:
             flag = 1;

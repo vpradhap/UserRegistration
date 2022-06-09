@@ -254,8 +254,12 @@ namespace UserRegistration
                     Console.ResetColor();
                 }
             }
-
-            
         }
+        public bool First(string first) => (Regex.IsMatch(first, FIRSTANDLASTNAME));
+        public bool Last(string last) => Regex.IsMatch(last, FIRSTANDLASTNAME);
+        public bool Email(string email) => Regex.IsMatch(email, EMAILID);
+        public bool Phone(string phonenum) => Regex.IsMatch(phonenum, MOBILE);
+        public bool Password(string password) => Regex.IsMatch(password, PASSWORD_R4);
+
     }
 }
